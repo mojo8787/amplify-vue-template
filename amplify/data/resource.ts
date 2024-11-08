@@ -8,6 +8,16 @@ const schema = a.schema({
   }).authorization(
     allow => allow.owner()
   ),
+  
+  Booking: a.model({
+    date: a.string(), // Store as ISO string
+    time: a.string(),
+    message: a.string(),
+    status: a.enum(['pending', 'confirmed', 'cancelled']),
+    userName: a.string(),
+  }).authorization(
+    allow => allow.owner()
+  ),
 });
 
 export type Schema = ClientSchema<typeof schema>;
