@@ -2,7 +2,7 @@
 import { Authenticator } from '@aws-amplify/ui-vue';
 import '@aws-amplify/ui-vue/styles.css';
 import { ref } from 'vue';
-import Posts from './components/Posts.vue';
+import Posts from '@/components/Posts.vue';
 import BookingCalendar from '@/components/BookingCalendar.vue';
 
 const activeTab = ref('posts');
