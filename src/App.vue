@@ -1,17 +1,29 @@
 <script setup lang="ts">
-import Posts from './components/Posts.vue'
-import { Authenticator } from "@aws-amplify/ui-vue";
-import "@aws-amplify/ui-vue/styles.css";
+import { Authenticator } from '@aws-amplify/ui-vue';
+import '@aws-amplify/ui-vue/styles.css';
+import Posts from './components/Posts.vue';
 </script>
 
 <template>
   <main>
-    <Authenticator>
-      <template v-slot="{ signOut }">
+    <authenticator>
+      <template v-slot="{ user, signOut }">
+        <div class="header">
+          <h1>Hello {{ user?.username }}'s Posts</h1>
+          <button @click="signOut">Sign Out</button>
+        </div>
         <Posts />
-        <button @click="signOut">Sign Out</button>
       </template>
-    </Authenticator>
+    </authenticator>
   </main>
 </template>
+
+<style scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+</style>
 
